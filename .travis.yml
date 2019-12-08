@@ -10,8 +10,8 @@ cache:
   - "$HOME/.m2"
 
 before_deploy:
-  - ls
-  - cp /home/travis/build/jthapliya/java-project-demo/target/java-project-1.0-SNAPSHOT-shaded.jar java-project-1.0-SNAPSHOT-shaded.jar
+  - mkdir -p myartifacts
+  - cp target/java-project-1.0-SNAPSHOT-shaded.jar myartifacts
   # Set up git user name and tag this commit
   #- git config --local user.name "travis ci user"
   #- git config --local user.email "travis@test.com"
@@ -23,7 +23,7 @@ deploy:
   provider: releases
   api_key:
     secure: g22TpZCzaRM/PLoGrNZ5M8QSdd4GtTIzEv0qgCS0tBojHC/W3oi1J/p/MDKyDt3R6ZEjxvmytZYYkYS1OUrDSekQeclyyW8/X4bSgTHhgCyXTsrZbZ9Gfg5Rbe4eJeFyM4WFEQG6oO0Yc8010hvArvN3uObELxuFHt3ULtedKDNe0tm1ERwzA5jD/BFq43jvfgNZH9DYm7bv39A9ipCN2M26Xq/y0uxqhWXJLfO3wfqtRd23LH1CgyQ/lP8sVcdZO39xNIkAcM+jakzd/pm2LnnI5uVO5y3GSRQPLw5pOEcbPrnRhZgvVdk1fRO6Q/H6K75ZCSUvseuzE15TkmYAEjFUpHw4jiLQZpB7apD1LEAQtXGJ+zrlLvNT4yrPaM3bNEVmLt6U25L7/J0a3oWAOFSXa9NbSEHpVRglaX87lTCqiiy9Q1iEFlPR2IkPDM421JJn4Cew/oKKLX2CVp/zA+auaevwHgD43bLgcbccgt6GZvcyhQPKaJmts4Mjkd8XcoQcE4LSXVkY+lcVwEb05y6RYQ80pUzDFOMYdqUB7U/a0nWqJJydS8QtjxFFFy/8CKXGK28iDlvGVwuQIhOtRQBWcknzF2wwM8iEsYIhdDesj53r8ent/R7G4hDU2SGeWOMpyCcwobvYU4ykCOwCDFoUVtzuNkw9pN9YQSvjReY=
-  file: java-project-1.0-SNAPSHOT-shaded.jar
+  file: myartifacts/java-project-1.0-SNAPSHOT-shaded.jar
   skip_cleanup: true
   on:
     draft: true
