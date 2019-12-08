@@ -10,6 +10,7 @@ cache:
   - "$HOME/.m2"
 
 before_deploy:
+  - ls
   - cp /home/travis/build/jthapliya/java-project-demo/target/java-project-1.0-SNAPSHOT-shaded.jar java-project-1.0-SNAPSHOT-shaded.jar
   # Set up git user name and tag this commit
   #- git config --local user.name "travis ci user"
