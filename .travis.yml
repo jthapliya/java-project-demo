@@ -18,5 +18,8 @@ deploy:
   file: java-project-1.0-SNAPSHOT-shaded.jar
   on:
     repo: jthapliya/java-project-demo
+    branches:    
+      only:      
+        - master
 
 before_deploy: "echo 'Deployed to Github successfully !'"
