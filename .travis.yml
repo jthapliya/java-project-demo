@@ -11,7 +11,7 @@ cache:
 
 before_deploy:
   - mkdir -p myartifacts
-  - cp java-project-demo/target/java-project-1.0-SNAPSHOT-shaded.jar myartifacts
+  - cp $TRAVIS_BUILD_DIR/target/java-project-1.0-SNAPSHOT-shaded.jar myartifacts
   # Set up git user name and tag this commit
   #- git config --local user.name "travis ci user"
   #- git config --local user.email "travis@test.com"
