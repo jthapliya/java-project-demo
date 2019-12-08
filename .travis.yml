@@ -9,10 +9,14 @@ cache:
   directories:
   - "$HOME/.m2"
 
-before_deploy: 
-      - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-      - git tag $TRAVIS_TAG
-      
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name "travis ci user"
+  - git config --local user.email "travis@test.com"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG    
+  - git push origin --tags
+  
 deploy:
   provider: releases
   api_key:
