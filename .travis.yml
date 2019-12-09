@@ -3,8 +3,8 @@ language: java
 jdk: openjdk10
 sudo: false
 
-script:
-  - mvn clean package -DskipTests
+#script:
+#- mvn clean package -DskipTests
 
 addons:
   sonarcloud:
@@ -15,8 +15,8 @@ addons:
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
-
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=jthapliya_java-project-demo
+  
 cache:
   directories:
   - "$HOME/.m2"
