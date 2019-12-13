@@ -3,18 +3,8 @@ language: java
 jdk: openjdk10
 sudo: false
 
-#script:
-#- mvn clean package -DskipTests
-
-addons:
-  sonarcloud:
-    organization: "jthapliya-sonarcloud"
-    token:
-      secure: "TFl/12qVCcsn45wdxNhK/ea8PdgLHXNG8cKKvmiEuhlmKqbZdfy6P04bQl7+XxePJYztUCgEn+97QglwiG/uibyPlxSLxJrt+IKlJqZmu6C2ZlRt7ABXu1cEv2JDAjrnsE/8iID+szMBnYCnWeAq+ob0Vg910xU904Acyx6b3JQ5Z0SEEgguYzOsn0iU/epF/MvXiBoCxf2b0q0zqYL53CafxN17SAvbi9LkuPwMUYHch0j+FeQdpLK/ycFsDzqHu+KHu+vuzYrcfd+TPMmxjivKl8RJ6tWIHGz7/T+GbuSADqDUBPl4zCEobELDMh1VdX50Cje8VzFGLoqZFdllgLAlQZujsR+wMcAWUTcG8zxhOgxfmaYaJ0U+sMg4InA3ejqrlRQ37YxfeylZY8HOJwaLuwMZ2LpJMzbQThjEWc1Z3GIWf2vXYpRjk0Q9Vd1JEUDB7vgrPX7AbpdC7OwFSIgsk0nZokKIqNb0Wbc29jsFl7tEdCWv/Y53JfI375hAyO8UbOrCOMfUP/eSGLWkGJH8b8V2C00Xz7IzukR7h6u0AJwaeqpNKo63BGlNydWe7ZkamYrGLUNlrKGuRjXPELz3ggef5PiJx/rYVx6hgnZLdhl3yzUjwZIPh5uQirX24XoRloeD+qVbmgw1nx2IzXyEUBiTyJbWHUdUfDPDPy8="
-
 script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=jthapliya_java-project-demo
+  - mvn clean package -DskipTests
   
 cache:
   directories:
