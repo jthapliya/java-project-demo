@@ -5,7 +5,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class App {
 
     public static void main(String[] args) {
-
+        int i=0;
         if (args.length < 1) {
             System.err.println("Please provide an input!");
             System.exit(0);
