@@ -3,18 +3,8 @@ language: java
 jdk: openjdk10
 sudo: false
 
-#script:
-#- mvn clean package -DskipTests
-
-addons:
-  sonarcloud:
-    organization: "jthapliya-sonarcloud"
-    token:
-      secure: "TFl/12qVCcsn45wdxNhK/ea8PdgLHXNG8cKKvmiEuhlmKqbZdfy6P04bQl7+XxePJYztUCgEn+97QglwiG/uibyPlxSLxJrt+IKlJqZmu6C2ZlRt7ABXu1cEv2JDAjrnsE/8iID+szMBnYCnWeAq+ob0Vg910xU904Acyx6b3JQ5Z0SEEgguYzOsn0iU/epF/MvXiBoCxf2b0q0zqYL53CafxN17SAvbi9LkuPwMUYHch0j+FeQdpLK/ycFsDzqHu+KHu+vuzYrcfd+TPMmxjivKl8RJ6tWIHGz7/T+GbuSADqDUBPl4zCEobELDMh1VdX50Cje8VzFGLoqZFdllgLAlQZujsR+wMcAWUTcG8zxhOgxfmaYaJ0U+sMg4InA3ejqrlRQ37YxfeylZY8HOJwaLuwMZ2LpJMzbQThjEWc1Z3GIWf2vXYpRjk0Q9Vd1JEUDB7vgrPX7AbpdC7OwFSIgsk0nZokKIqNb0Wbc29jsFl7tEdCWv/Y53JfI375hAyO8UbOrCOMfUP/eSGLWkGJH8b8V2C00Xz7IzukR7h6u0AJwaeqpNKo63BGlNydWe7ZkamYrGLUNlrKGuRjXPELz3ggef5PiJx/rYVx6hgnZLdhl3yzUjwZIPh5uQirX24XoRloeD+qVbmgw1nx2IzXyEUBiTyJbWHUdUfDPDPy8="
-
 script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=jthapliya_java-project-demo
+  - mvn clean package -DskipTests
   
 cache:
   directories:
@@ -27,7 +17,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: g22TpZCzaRM/PLoGrNZ5M8QSdd4GtTIzEv0qgCS0tBojHC/W3oi1J/p/MDKyDt3R6ZEjxvmytZYYkYS1OUrDSekQeclyyW8/X4bSgTHhgCyXTsrZbZ9Gfg5Rbe4eJeFyM4WFEQG6oO0Yc8010hvArvN3uObELxuFHt3ULtedKDNe0tm1ERwzA5jD/BFq43jvfgNZH9DYm7bv39A9ipCN2M26Xq/y0uxqhWXJLfO3wfqtRd23LH1CgyQ/lP8sVcdZO39xNIkAcM+jakzd/pm2LnnI5uVO5y3GSRQPLw5pOEcbPrnRhZgvVdk1fRO6Q/H6K75ZCSUvseuzE15TkmYAEjFUpHw4jiLQZpB7apD1LEAQtXGJ+zrlLvNT4yrPaM3bNEVmLt6U25L7/J0a3oWAOFSXa9NbSEHpVRglaX87lTCqiiy9Q1iEFlPR2IkPDM421JJn4Cew/oKKLX2CVp/zA+auaevwHgD43bLgcbccgt6GZvcyhQPKaJmts4Mjkd8XcoQcE4LSXVkY+lcVwEb05y6RYQ80pUzDFOMYdqUB7U/a0nWqJJydS8QtjxFFFy/8CKXGK28iDlvGVwuQIhOtRQBWcknzF2wwM8iEsYIhdDesj53r8ent/R7G4hDU2SGeWOMpyCcwobvYU4ykCOwCDFoUVtzuNkw9pN9YQSvjReY=
+    secure: g22TpZ010hvArvN3uObELxuFHt3ULtedKDNe0tm1ERwzA5jD/BFq43jvfgNZH9DYm7bv39A9ipCN2M26Xq/y0uxqhWXJLfO3wfqtRd23LH1CgyQ/lP8sVcdZO39xNIkAcM+jakzd/pm2LnnI5uVO5y3GSRQPLw5pOEcbPrnRhZgvVdk1fRO6Q/H6K75ZCSUvseuzE15TkmYAEjFUpHw4jiLQZpB7apD1LEAQtXGJ+zrlLvNT4yrPaM3bNEVmLt6U25L7/J0a3oWAOFSXa9NbSEHpVRglaX87lTCqiiy9Q1iEFlPR2IkPDM421JJn4Cew/oKKLX2CVp/zA+auaevwHgD43bLgcbccgt6GZvcyhQPKaJmts4Mjkd8XcoQcE4LSXVkY+lcVwEb05y6RYQ80pUzDFOMYdqUB7U/a0nWqJJydS8QtjxFFFy/8CKXGK28iDlvGVwuQIhOtRQBWcknzF2wwM8iEsYIhdDesj53r8ent/R7G4hDU2SGeWOMpyCcwobvYU4ykCOwCDFoUVtzuNkw9pN9YQSvjReY=
   file: demoartifacts/java-project-1.0-SNAPSHOT.jar
   skip_cleanup: true
   on:
